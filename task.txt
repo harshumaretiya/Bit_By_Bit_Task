@@ -1,0 +1,76 @@
+Task 1
+
+Given a sentence with multiple lowercase words separated by spaces, write a Javascript code that finds the longest word in the sentence. If there are multiple words of the same length, choose one that has the highest number of vowels. Ignore any character in the sentence that is not a letter or a space. Find the most efficient way to achieve this.
+
+Sample input:
+“Smart people learn from everything and everyone, average people from their experience, stupid people already, have all the answers” (Socrates)
+
+Sample output:
+“experience”
+
+Note: Longest words are “everything” and “experience”, but the second has the most vowels
+
+Task 1 Solution 
+
+function findLongestWord(str) {
+  var longestWord = str.split(/[.,\/ -]/).sort(function(a, b) { return b.length - a.length; });
+    arr_words = longestWord.filter(w =>  w.length == longestWord[0].length)
+    let max = 0;
+   arr_words.filter((e, index) => {
+    let count = (e.match(/[aeiou]/gi)||[]).length
+     max = count > max ? index : max
+   })
+   return arr_words
+}
+console.log(findLongestWord("Smart people learn from everything and everyone, experiencce average people from their experiennce, stupid people already, have all the answers"));
+
+=========================================================================================================================================
+
+
+Task 2
+
+Finish the following code by completing the challenges at the end of the file:
+https://www.w3schools.com/code/tryit.asp?filename=GSQWW2VJCUB1
+
+<!-- 
+	HTML:
+    - Add 2 buttons to the html
+    
+    CSS:
+    - make the title blue
+    
+    JS:
+    - When the button 1 is clicked, the "demo" p get the value of the first p of the page
+    - When the button 2 is clicked, the "demo" p get the value of the second p of the page
+-->
+
+Task 2 Solution
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 style="color: blue">JavaScript HTML DOM</h2>
+
+<div id="main">
+<p>Finding HTML Elements by Tag Name</p>
+<p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+</div>
+<button onclick="myFunction(0)" type="button">First Button</button>
+<button onclick="myFunction(1)" type="button">Second Button</button>
+<p id="demo"></p>
+
+<script>
+
+const x = document.getElementById("main");
+const y = x.getElementsByTagName("p");
+function myFunction(a) {
+    document.getElementById("demo").innerHTML = y[a].innerHTML;
+  }
+  
+</script>
+
+</body>
+</html>
+
